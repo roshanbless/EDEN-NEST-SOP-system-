@@ -1,0 +1,546 @@
+
+<h2 class="sr-only">Eden Nest Farm remote management system — delegation structure, daily SOPs, weekly schedules, WhatsApp communication templates, and KPIs for remote operation from Dubai</h2>
+<style>
+*{box-sizing:border-box}
+.sop{padding:1rem 0;font-family:var(--font-sans)}
+.sl{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:10px}
+.tnav{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.5rem;overflow-x:auto;gap:0}
+.tab{padding:8px 14px;font-size:13px;cursor:pointer;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:6px;white-space:nowrap;transition:color .12s;user-select:none;flex-shrink:0}
+.tab i{font-size:14px}
+.tab.active{color:var(--text-primary);border-bottom-color:#1baf7a}
+.tab:not(.active):hover{color:var(--text-secondary)}
+.rc{background:var(--surface-2);border:.5px solid var(--border);border-radius:12px;padding:14px 16px}
+.rt{font-size:13px;font-weight:500;color:var(--text-primary);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.rtext{font-size:12px;color:var(--text-secondary);line-height:1.7}
+.badge{font-size:11px;padding:2px 8px;border-radius:20px}
+.matrix{width:100%;border-collapse:collapse;font-size:12px}
+.matrix th{font-size:11px;font-weight:500;color:var(--text-muted);text-align:left;padding:7px 10px;border-bottom:.5px solid var(--border)}
+.matrix td{padding:7px 10px;border-bottom:.5px solid var(--border);color:var(--text-secondary);vertical-align:middle}
+.matrix tr:last-child td{border-bottom:none}
+.matrix td:first-child{color:var(--text-primary)}
+.matrix td{text-align:center}
+.matrix td:first-child{text-align:left}
+.step-block{margin-bottom:1.5rem}
+.sb-label{font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;padding:8px 0 6px;border-bottom:.5px solid var(--border);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.step{display:flex;gap:12px;padding:8px 0;border-bottom:.5px solid var(--border)}
+.step:last-child{border-bottom:none}
+.st-time{font-size:11px;color:var(--text-muted);width:52px;flex-shrink:0;padding-top:2px;font-variant-numeric:tabular-nums}
+.st-body{flex:1}
+.st-title{font-size:13px;color:var(--text-primary);font-weight:500;line-height:1.4}
+.st-sub{font-size:12px;color:var(--text-secondary);margin-top:2px;line-height:1.5}
+.st-record{font-size:11px;color:var(--text-muted);margin-top:3px;display:flex;align-items:center;gap:4px}
+.check-list{display:flex;flex-direction:column;gap:6px;margin:8px 0 1.5rem}
+.ci{display:flex;gap:8px;font-size:13px;color:var(--text-secondary);line-height:1.5;align-items:flex-start}
+.ci i{font-size:16px;color:var(--text-muted);flex-shrink:0;margin-top:1px}
+.ci strong{color:var(--text-primary);font-weight:500}
+.tpl-wrap{position:relative;margin-bottom:14px}
+.tpl{background:var(--surface-1);border:.5px solid var(--border);border-left:3px solid #1baf7a;border-radius:0 8px 8px 0;padding:12px 14px;font-family:var(--font-mono);font-size:11.5px;color:var(--text-secondary);line-height:1.8;white-space:pre-wrap;margin:0}
+.cpbtn{position:absolute;top:8px;right:8px;font-size:11px;padding:3px 8px;border-radius:var(--radius);background:var(--surface-2);border:.5px solid var(--border);cursor:pointer;color:var(--text-muted);display:flex;align-items:center;gap:4px}
+.cpbtn:hover{color:var(--text-primary)}
+.schedule-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:.5rem}
+.schedule-table th{font-size:11px;font-weight:500;color:var(--text-muted);text-align:left;padding:6px 10px;border-bottom:.5px solid var(--border)}
+.schedule-table td{padding:9px 10px;border-bottom:.5px solid var(--border);color:var(--text-secondary);vertical-align:middle}
+.schedule-table tr:last-child td{border-bottom:none}
+.schedule-table td:first-child{font-weight:500;color:var(--text-primary)}
+.esc{display:flex;flex-direction:column;gap:6px;margin-top:.5rem}
+.erow{display:flex;gap:12px;padding:10px 14px;border-radius:var(--radius);border:.5px solid var(--border);align-items:flex-start}
+.etitle{font-size:13px;font-weight:500;margin-bottom:2px}
+.esub{font-size:12px;color:var(--text-secondary);line-height:1.6}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:1.5rem}
+.kcard{background:var(--surface-2);border:.5px solid var(--border);border-radius:12px;padding:14px;border-top:3px solid}
+.kname{font-size:11px;color:var(--text-muted);margin-bottom:3px}
+.kformula{font-size:11px;color:var(--text-muted);font-family:var(--font-mono);margin-bottom:10px;line-height:1.4}
+.krows{display:flex;flex-direction:column;gap:5px}
+.krow{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.krow span:first-child{color:var(--text-secondary)}
+.kval{display:flex;align-items:center;gap:5px;font-weight:500}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+</style>
+
+<div class="sop">
+<div class="tnav">
+  <div class="tab active" id="t-team" role="button" tabindex="0" onclick="st('team')"><i class="ti ti-users" aria-hidden="true"></i>Team</div>
+  <div class="tab" id="t-sops" role="button" tabindex="0" onclick="st('sops')"><i class="ti ti-clipboard-list" aria-hidden="true"></i>Daily SOPs</div>
+  <div class="tab" id="t-sched" role="button" tabindex="0" onclick="st('sched')"><i class="ti ti-calendar" aria-hidden="true"></i>Weekly & Monthly</div>
+  <div class="tab" id="t-comms" role="button" tabindex="0" onclick="st('comms')"><i class="ti ti-message-2" aria-hidden="true"></i>Communication</div>
+  <div class="tab" id="t-kpis" role="button" tabindex="0" onclick="st('kpis')"><i class="ti ti-chart-bar" aria-hidden="true"></i>KPIs</div>
+</div>
+
+<!-- ═══ TEAM ═══ -->
+<div id="p-team">
+  <div class="sl">organisation structure</div>
+  <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:1.5rem">
+    <div style="background:var(--surface-2);border:.5px solid var(--border);border-top:3px solid #1baf7a;border-radius:12px;padding:12px 24px;text-align:center;width:270px">
+      <div style="font-size:13px;font-weight:500;color:var(--text-primary)">Roshan Alexander</div>
+      <div style="font-size:12px;color:var(--text-muted)">Owner · Dubai (remote)</div>
+    </div>
+    <div style="width:2px;height:20px;background:var(--border-strong)"></div>
+    <div style="background:var(--surface-2);border:.5px solid var(--border);border-top:3px solid #2a78d6;border-radius:12px;padding:12px 24px;text-align:center;width:240px">
+      <div style="font-size:13px;font-weight:500;color:var(--text-primary)">Farm Supervisor</div>
+      <div style="font-size:12px;color:var(--text-muted)">On-site · Kerala · First escalation</div>
+    </div>
+    <div style="position:relative;width:270px;height:26px">
+      <div style="position:absolute;left:50%;top:0;width:2px;height:13px;background:var(--border-strong)"></div>
+      <div style="position:absolute;left:22%;right:22%;top:13px;height:2px;background:var(--border-strong)"></div>
+      <div style="position:absolute;left:22%;top:13px;width:2px;height:13px;background:var(--border-strong)"></div>
+      <div style="position:absolute;right:22%;top:13px;width:2px;height:13px;background:var(--border-strong)"></div>
+    </div>
+    <div style="display:flex;gap:14px;width:270px">
+      <div style="flex:1;background:var(--surface-1);border:.5px solid var(--border);border-radius:10px;padding:10px;text-align:center">
+        <div style="font-size:12px;font-weight:500;color:var(--text-primary)">Farm Workers</div>
+        <div style="font-size:11px;color:var(--text-muted)">Daily operations</div>
+      </div>
+      <div style="flex:1;background:var(--surface-1);border:.5px solid var(--border);border-radius:10px;padding:10px;text-align:center">
+        <div style="font-size:12px;font-weight:500;color:var(--text-primary)">Sales & Delivery</div>
+        <div style="font-size:11px;color:var(--text-muted)">Orders & customers</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl" style="margin-top:1.5rem">roles & responsibilities</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem">
+    <div class="rc">
+      <div class="rt"><i class="ti ti-user-check" style="color:#2a78d6;font-size:16px" aria-hidden="true"></i>Farm Supervisor</div>
+      <div style="margin-bottom:8px"><span class="badge" style="background:rgba(42,120,214,.1);color:#185fa5">Authority: Level 1 & 2</span></div>
+      <div class="rtext">Morning & evening reports to Roshan<br>Supervise all workers on-site<br>Egg quality control & grading<br>Supplier coordination & deliveries<br>Incident response & first escalation</div>
+    </div>
+    <div class="rc">
+      <div class="rt"><i class="ti ti-shovel" style="color:var(--text-muted);font-size:16px" aria-hidden="true"></i>Farm Workers</div>
+      <div style="margin-bottom:8px"><span class="badge" style="background:var(--surface-0);color:var(--text-muted)">Authority: Level 1 only</span></div>
+      <div class="rtext">Feeding schedule (morning & afternoon)<br>Water system check & maintenance<br>Egg collection ×2 daily, grading<br>Shed cleaning & droppings removal<br>Logbook data entry each shift</div>
+    </div>
+    <div class="rc">
+      <div class="rt"><i class="ti ti-truck-delivery" style="color:#1baf7a;font-size:16px" aria-hidden="true"></i>Sales & Delivery</div>
+      <div style="margin-bottom:8px"><span class="badge" style="background:rgba(27,175,122,.1);color:#0f6e56">Authority: Level 2</span></div>
+      <div class="rtext">WhatsApp order management<br>Delivery route coordination<br>Payment collection (cash & UPI)<br>First response to customer issues<br>New retail customer onboarding</div>
+    </div>
+  </div>
+
+  <div class="sl">decision authority matrix</div>
+  <div style="overflow-x:auto">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="text-align:left;width:42%">Decision type</th>
+          <th>Worker</th>
+          <th>Supervisor</th>
+          <th>Roshan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Daily feed quantity adjustment</td><td style="color:var(--text-success)">✓</td><td style="color:var(--text-success)">✓</td><td style="color:var(--text-muted)">—</td></tr>
+        <tr><td>Emergency veterinary call</td><td style="color:var(--text-muted)">↑ escalate</td><td style="color:var(--text-warning)">✓ + notify</td><td style="color:var(--text-muted)">informed</td></tr>
+        <tr><td>Repair or purchase &lt; ₹1,000</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓</td><td style="color:var(--text-muted)">—</td></tr>
+        <tr><td>Purchase ₹1,000 – ₹10,000</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓ approve</td></tr>
+        <tr><td>Purchase &gt; ₹10,000</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓ approve</td></tr>
+        <tr><td>New retail customer</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓</td><td style="color:var(--text-muted)">FYI</td></tr>
+        <tr><td>New wholesale / bulk account</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓ only</td></tr>
+        <tr><td>Pricing changes</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓ only</td></tr>
+        <tr><td>Staff hiring or letting go</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓ only</td></tr>
+        <tr><td>Bird culling decisions</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-muted)">—</td><td style="color:var(--text-success)">✓ only</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ DAILY SOPs ═══ -->
+<div id="p-sops">
+  <div class="step-block">
+    <div class="sb-label"><i class="ti ti-sun" style="color:#eda100;font-size:16px" aria-hidden="true"></i>Morning block · 5:30 AM – 9:00 AM IST</div>
+    <div class="step">
+      <div class="st-time">5:30 AM</div>
+      <div class="st-body">
+        <div class="st-title">Open farm & walk premises</div>
+        <div class="st-sub">Visual check for overnight damage: predator entry, equipment failure, unusual bird behaviour</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">5:45 AM</div>
+      <div class="st-body">
+        <div class="st-title">Water system inspection</div>
+        <div class="st-sub">Test all nipple drinkers; confirm tank is full; note and fix any blockages before feeding</div>
+        <div class="st-record"><i class="ti ti-pencil" style="font-size:13px" aria-hidden="true"></i>Record: tank level, any blocked lines</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">6:00 AM</div>
+      <div class="st-body">
+        <div class="st-title">First feeding round</div>
+        <div class="st-sub">Distribute layer feed at standard quantity per shed. Do not skip or reduce without supervisor approval.</div>
+        <div class="st-record"><i class="ti ti-pencil" style="font-size:13px" aria-hidden="true"></i>Record: kg of feed given per section</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">7:00 AM</div>
+      <div class="st-body">
+        <div class="st-title">First egg collection & grading</div>
+        <div class="st-sub">Collect shed by shed. Grade into: A = clean & sellable · B = hairline crack, grade 2 sale · C = broken, unusable. Store in labelled trays.</div>
+        <div class="st-record"><i class="ti ti-pencil" style="font-size:13px" aria-hidden="true"></i>Record: count by grade (A / B / C) per shed</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">7:20 AM</div>
+      <div class="st-body">
+        <div class="st-title">Dead bird removal & recording</div>
+        <div class="st-sub">Remove any deaths immediately. Note count and likely cause (injury, illness, heat stress). Alert supervisor if more than 3 in one morning.</div>
+        <div class="st-record"><i class="ti ti-pencil" style="font-size:13px" aria-hidden="true"></i>Record: count + cause in daily logbook</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">7:30 AM</div>
+      <div class="st-body">
+        <div class="st-title">Send morning WhatsApp report to Roshan</div>
+        <div class="st-sub">Use the morning template exactly — eggs AM, feed given, deaths, health status, notes. Send by 7:30 AM IST every day without exception.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">8:00 AM</div>
+      <div class="st-body">
+        <div class="st-title">Ventilation & heat management check</div>
+        <div class="st-sub">Kerala heat builds fast from 8 AM. Open vents, check exhaust fans. Birds showing open-beak panting = urgent — alert supervisor.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">8:30 AM</div>
+      <div class="st-body">
+        <div class="st-title">Medication or supplement water (if scheduled)</div>
+        <div class="st-sub">Check the weekly schedule posted in the shed. Mix dosage as instructed on packet. Confirm with supervisor before giving any new medication.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="sb-label"><i class="ti ti-sun-low" style="color:#eda100;font-size:16px" aria-hidden="true"></i>Afternoon block · 3:00 PM – 6:00 PM IST</div>
+    <div class="step">
+      <div class="st-time">3:00 PM</div>
+      <div class="st-body">
+        <div class="st-title">Second feeding round</div>
+        <div class="st-sub">Afternoon feed at standard quantity. Confirm water is still flowing in all drinkers.</div>
+        <div class="st-record"><i class="ti ti-pencil" style="font-size:13px" aria-hidden="true"></i>Record: kg given, any issues with feeders</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">3:30 PM</div>
+      <div class="st-body">
+        <div class="st-title">Second egg collection & daily total</div>
+        <div class="st-sub">Count and grade as per morning. Add to morning count for the day's total. Store properly in trays, flat surface, cool area.</div>
+        <div class="st-record"><i class="ti ti-pencil" style="font-size:13px" aria-hidden="true"></i>Record: PM count + combined day total</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">4:30 PM</div>
+      <div class="st-body">
+        <div class="st-title">Shed and walkway cleaning</div>
+        <div class="st-sub">Remove droppings from walkways and high-density feeding areas. Keeps disease pressure low and tracks clean.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">5:00 PM</div>
+      <div class="st-body">
+        <div class="st-title">Bird health walkthrough</div>
+        <div class="st-sub">Walk through all sheds slowly. Signs to flag immediately: lethargy, discharge from eyes/nostrils, hunched posture, unusual sounds, not eating.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">5:30 PM</div>
+      <div class="st-body">
+        <div class="st-title">Send evening WhatsApp report to Roshan</div>
+        <div class="st-sub">Use evening template: day total eggs, feed total, orders dispatched, revenue collected, any issues. Send by 5:30 PM IST.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="sb-label"><i class="ti ti-moon" style="color:var(--text-muted);font-size:16px" aria-hidden="true"></i>Evening close · 6:00 PM – 6:30 PM IST</div>
+    <div class="step">
+      <div class="st-time">6:00 PM</div>
+      <div class="st-body">
+        <div class="st-title">Secure all shed doors</div>
+        <div class="st-sub">Latch and verify all doors. Predators (mongoose, wild dogs) are most active at night — this step is not optional.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">6:10 PM</div>
+      <div class="st-body">
+        <div class="st-title">Water tanks topped up for overnight</div>
+        <div class="st-sub">Birds drink significantly overnight and early morning. Full tanks = healthy birds the next day.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">6:15 PM</div>
+      <div class="st-body">
+        <div class="st-title">Update daily logbook</div>
+        <div class="st-sub">Enter all figures: AM eggs, PM eggs, daily total, grade A/B/C breakdown, total feed used, deaths, weather, any notes. This is Roshan's audit trail.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="st-time">6:30 PM</div>
+      <div class="st-body">
+        <div class="st-title">Lock premises and sign off</div>
+        <div class="st-sub">Supervisor locks main gate and confirms to Roshan via WhatsApp if any issue arose during close.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WEEKLY & MONTHLY ═══ -->
+<div id="p-sched">
+  <div class="sl">weekly checklist · every sunday</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem">
+    <div class="rc">
+      <div class="rt"><i class="ti ti-tools" style="color:#1baf7a;font-size:16px" aria-hidden="true"></i>Farm operations</div>
+      <div class="check-list" style="margin-bottom:0">
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Full shed deep clean (water wash + 1:20 disinfectant on all surfaces)</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Equipment check: feeders, drinkers, lighting, fans, ventilation</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Feed inventory: bags remaining × kg/bag ÷ daily consumption = days left</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>If stock &lt; 14 days: order immediately and notify Roshan</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Water tank deep clean (once monthly — mark on calendar)</div>
+      </div>
+    </div>
+    <div class="rc">
+      <div class="rt"><i class="ti ti-report" style="color:#2a78d6;font-size:16px" aria-hidden="true"></i>Admin & reporting</div>
+      <div class="check-list" style="margin-bottom:0">
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Calculate weekly laying rate: (eggs ÷ birds ÷ 7) × 100</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Total feed used this week (kg)</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Revenue collected (cash + UPI, all recorded)</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>All expenses logged (feed, medicine, labour, misc)</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Send weekly WhatsApp report by Sunday 7 PM IST</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl">monthly review call · last sunday of month</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem">
+    <div class="rc">
+      <div class="rt"><i class="ti ti-chart-line" style="color:#eda100;font-size:16px" aria-hidden="true"></i>Prepare before the call</div>
+      <div class="check-list" style="margin-bottom:0">
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Monthly laying rate: (total eggs ÷ birds ÷ days) × 100</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>FCR: total feed kg ÷ total egg kg produced</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Mortality rate: (deaths ÷ starting flock) × 100</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Revenue vs monthly target</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Feed cost as % of revenue</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>List of any pending decisions needing Roshan</div>
+      </div>
+    </div>
+    <div class="rc">
+      <div class="rt"><i class="ti ti-calendar-stats" style="color:#4a3aa7;font-size:16px" aria-hidden="true"></i>Quarterly planning</div>
+      <div class="check-list" style="margin-bottom:0">
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Flock age assessment — plan new batch introduction timeline</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Major equipment service (motors, water systems)</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Supplier price review and renegotiation</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>90-day business performance review with Roshan</div>
+        <div class="ci"><i class="ti ti-circle" aria-hidden="true"></i>Eden Nest marketing & WhatsApp campaign review</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMMUNICATION ═══ -->
+<div id="p-comms">
+  <div class="sl">whatsapp report templates · send to supervisor, use exactly</div>
+
+  <div style="margin-bottom:4px;font-size:12px;font-weight:500;color:var(--text-secondary)">Morning report · send by 7:30 AM IST daily</div>
+  <div class="tpl-wrap">
+    <pre id="tpl-morning" class="tpl">EDEN NEST MORNING — [DD/MM]
+────────────────────────
+Eggs AM:       [count]
+Feed given:    [kg]
+Deaths:        [n] — [reason / nil]
+Health:        ✅ Normal  /  ⚠️ [describe]
+Notes:         [anything unusual / all clear]</pre>
+    <button class="cpbtn" id="cpbtn-tpl-morning" onclick="copyTpl('tpl-morning')"><i class="ti ti-copy" style="font-size:12px" aria-hidden="true"></i>Copy</button>
+  </div>
+
+  <div style="margin-bottom:4px;font-size:12px;font-weight:500;color:var(--text-secondary)">Evening report · send by 5:30 PM IST daily</div>
+  <div class="tpl-wrap">
+    <pre id="tpl-evening" class="tpl">EDEN NEST EVENING — [DD/MM]
+────────────────────────
+Eggs PM:            [count]
+Day total:          [AM + PM]
+Feed total:         [kg]
+Orders dispatched:  [n]
+Revenue collected:  ₹[amount]
+Issues:             [describe / nil]</pre>
+    <button class="cpbtn" id="cpbtn-tpl-evening" onclick="copyTpl('tpl-evening')"><i class="ti ti-copy" style="font-size:12px" aria-hidden="true"></i>Copy</button>
+  </div>
+
+  <div style="margin-bottom:4px;font-size:12px;font-weight:500;color:var(--text-secondary)">Weekly report · send by Sunday 7 PM IST</div>
+  <div class="tpl-wrap">
+    <pre id="tpl-weekly" class="tpl">EDEN NEST WEEKLY — [DD/MM – DD/MM]
+────────────────────────────────
+PRODUCTION
+Eggs this week:  [total]
+Last week:       [n] | Change: [+/-%]
+Laying rate:     [%]% (target 85%)
+Deaths:          [n] ([%]%)
+
+FEED & COST
+Feed used:       [kg]
+Feed cost:       ₹[amount]
+
+SALES
+Revenue:         ₹[amount]
+Orders filled:   [n]
+New customers:   [n]
+
+FLAGS
+[list any issues / nil]
+
+NEXT WEEK PRIORITIES
+1. [task]
+2. [task]</pre>
+    <button class="cpbtn" id="cpbtn-tpl-weekly" onclick="copyTpl('tpl-weekly')"><i class="ti ti-copy" style="font-size:12px" aria-hidden="true"></i>Copy</button>
+  </div>
+
+  <div class="sl" style="margin-top:1rem">check-in schedule · all times shown in both IST and UAE</div>
+  <table class="schedule-table">
+    <thead>
+      <tr><th>Touchpoint</th><th>IST</th><th>UAE time</th><th>Format</th><th>Owner</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Morning report</td><td>7:30 AM daily</td><td>6:00 AM UAE</td><td>WhatsApp template</td><td>Supervisor</td></tr>
+      <tr><td>Evening report</td><td>5:30 PM daily</td><td>4:00 PM UAE</td><td>WhatsApp template</td><td>Supervisor</td></tr>
+      <tr><td>Weekly call</td><td>Fri 9:00 AM</td><td>7:30 AM UAE</td><td>WhatsApp video</td><td>Both</td></tr>
+      <tr><td>Monthly review</td><td>Last Sun 7 PM</td><td>5:30 PM UAE</td><td>WhatsApp video</td><td>Both</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sl" style="margin-top:1.5rem">escalation protocol</div>
+  <div class="esc">
+    <div class="erow" style="background:var(--bg-danger);border-color:var(--border-danger)">
+      <i class="ti ti-alert-triangle esc-icon" style="color:var(--text-danger);font-size:18px" aria-hidden="true"></i>
+      <div>
+        <div class="etitle" style="color:var(--text-danger)">Critical — call Roshan immediately, any time of day</div>
+        <div class="esub">10+ bird deaths in one day · visible disease spreading through flock · theft, fire, or flood · complete water or power failure with no resolution path</div>
+      </div>
+    </div>
+    <div class="erow" style="background:var(--bg-warning);border-color:var(--border-warning)">
+      <i class="ti ti-alert-circle esc-icon" style="color:var(--text-warning);font-size:18px" aria-hidden="true"></i>
+      <div>
+        <div class="etitle" style="color:var(--text-warning)">Important — WhatsApp Roshan within 2 hours</div>
+        <div class="esub">Laying rate below 75% for 3 consecutive days · customer dispute unresolved · feed stock drops below 7 days · equipment failure affecting operations · worker absent with no cover · supplier price increase &gt; 10%</div>
+      </div>
+    </div>
+    <div class="erow" style="background:var(--bg-success);border-color:var(--border-success)">
+      <i class="ti ti-circle-check esc-icon" style="color:var(--text-success);font-size:18px" aria-hidden="true"></i>
+      <div>
+        <div class="etitle" style="color:var(--text-success)">Routine — include in daily or weekly report only</div>
+        <div class="esub">Single bird deaths (normal attrition) · minor repairs completed under ₹500 · new retail customer acquired · minor delivery delay resolved · normal supplier communication</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ KPIs ═══ -->
+<div id="p-kpis">
+  <div class="sl">five metrics Roshan tracks every week</div>
+  <div class="kpi-grid">
+    <div class="kcard" style="border-top-color:#1baf7a">
+      <div class="kname">Laying rate</div>
+      <div class="kformula">(Eggs ÷ birds) × 100</div>
+      <div class="krows">
+        <div class="krow"><span>Target</span><div class="kval"><span class="dot" style="background:#1baf7a"></span>85–90%</div></div>
+        <div class="krow"><span>Watch</span><div class="kval"><span class="dot" style="background:#eda100"></span>75–84%</div></div>
+        <div class="krow"><span>Alert (&gt;3 days)</span><div class="kval"><span class="dot" style="background:#E24B4A"></span>&lt; 75%</div></div>
+      </div>
+    </div>
+    <div class="kcard" style="border-top-color:#eda100">
+      <div class="kname">Feed conversion ratio</div>
+      <div class="kformula">Feed kg ÷ egg kg</div>
+      <div class="krows">
+        <div class="krow"><span>Target</span><div class="kval"><span class="dot" style="background:#1baf7a"></span>2.0–2.2</div></div>
+        <div class="krow"><span>Watch</span><div class="kval"><span class="dot" style="background:#eda100"></span>2.3–2.5</div></div>
+        <div class="krow"><span>Alert</span><div class="kval"><span class="dot" style="background:#E24B4A"></span>&gt; 2.5</div></div>
+      </div>
+    </div>
+    <div class="kcard" style="border-top-color:#E24B4A">
+      <div class="kname">Weekly mortality rate</div>
+      <div class="kformula">(Deaths ÷ flock) × 100</div>
+      <div class="krows">
+        <div class="krow"><span>Target</span><div class="kval"><span class="dot" style="background:#1baf7a"></span>&lt; 0.5% / week</div></div>
+        <div class="krow"><span>Watch</span><div class="kval"><span class="dot" style="background:#eda100"></span>0.5–1.0%</div></div>
+        <div class="krow"><span>Alert</span><div class="kval"><span class="dot" style="background:#E24B4A"></span>&gt; 1.0%</div></div>
+      </div>
+    </div>
+    <div class="kcard" style="border-top-color:#2a78d6">
+      <div class="kname">Feed cost % of revenue</div>
+      <div class="kformula">(Feed cost ÷ revenue) × 100</div>
+      <div class="krows">
+        <div class="krow"><span>Target</span><div class="kval"><span class="dot" style="background:#1baf7a"></span>&lt; 40%</div></div>
+        <div class="krow"><span>Watch</span><div class="kval"><span class="dot" style="background:#eda100"></span>40–50%</div></div>
+        <div class="krow"><span>Alert</span><div class="kval"><span class="dot" style="background:#E24B4A"></span>&gt; 50%</div></div>
+      </div>
+    </div>
+    <div class="kcard" style="border-top-color:#4a3aa7">
+      <div class="kname">Order fulfillment rate</div>
+      <div class="kformula">(Filled ÷ total orders) × 100</div>
+      <div class="krows">
+        <div class="krow"><span>Target</span><div class="kval"><span class="dot" style="background:#1baf7a"></span>100%</div></div>
+        <div class="krow"><span>Watch</span><div class="kval"><span class="dot" style="background:#eda100"></span>90–99%</div></div>
+        <div class="krow"><span>Alert</span><div class="kval"><span class="dot" style="background:#E24B4A"></span>&lt; 90%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sl" style="margin-top:1rem">monthly scorecard · supervisor prepares, Roshan reviews on call</div>
+  <div style="overflow-x:auto">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="text-align:left">KPI</th>
+          <th>This month</th>
+          <th>Last month</th>
+          <th>Target</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Laying rate %</td><td>[ ]%</td><td>[ ]%</td><td>85%</td><td style="color:var(--text-muted)">fill in</td></tr>
+        <tr><td>FCR</td><td>[ ]</td><td>[ ]</td><td>2.0–2.2</td><td style="color:var(--text-muted)">fill in</td></tr>
+        <tr><td>Mortality rate %</td><td>[ ]%</td><td>[ ]%</td><td>&lt; 0.5%/week</td><td style="color:var(--text-muted)">fill in</td></tr>
+        <tr><td>Feed cost % revenue</td><td>[ ]%</td><td>[ ]%</td><td>&lt; 40%</td><td style="color:var(--text-muted)">fill in</td></tr>
+        <tr><td>Revenue ₹</td><td>₹[ ]</td><td>₹[ ]</td><td>₹[target]</td><td style="color:var(--text-muted)">fill in</td></tr>
+        <tr><td>New customers</td><td>[ ]</td><td>[ ]</td><td>[ ]/month</td><td style="color:var(--text-muted)">fill in</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Explore -->
+<div style="margin-top:2rem">
+  <div class="sl">build these next</div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+    <button onclick="sendPrompt('Create an Indian stock market trade journal template for NSE and BSE that I can use every Friday after market close')">Trade journal template ↗</button>
+    <button onclick="sendPrompt('Create a 4-week YouTube content calendar for Bible stories and motivational content with video titles, hooks, and thumbnail ideas')">YouTube content calendar ↗</button>
+    <button onclick="sendPrompt('Create a weekly master review checklist for all four of my careers: IT Admin, Eden Nest Farm, Stock Market, and Digital AI Content')">Weekly review checklist ↗</button>
+    <button onclick="sendPrompt('Help me write a WhatsApp Business message to send to potential wholesale egg buyers in Kerala for Eden Nest Farm')">Customer outreach message ↗</button>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  var ps=['team','sops','sched','comms','kpis'];
+  ps.slice(1).forEach(function(p){document.getElementById('p-'+p).style.display='none'});
+  window.st=function(name){
+    ps.forEach(function(p){
+      document.getElementById('p-'+p).style.display=p===name?'block':'none';
+      document.getElementById('t-'+p).classList.toggle('active',p===name);
+    });
+  };
+  window.copyTpl=function(id){
+    var el=document.getElementById(id);
+    var btn=document.getElementById('cpbtn-'+id);
+    if(!el||!btn)return;
+    try{
+      navigator.clipboard.writeText(el.textContent).then(function(){
+        btn.innerHTML='<i class="ti ti-check" style="font-size:12px"></i>Copied';
+        setTimeout(function(){btn.innerHTML='<i class="ti ti-copy" style="font-size:12px"></i>Copy'},1800);
+      });
+    }catch(e){
+      var r=document.createRange();r.selectNode(el);
+      window.getSelection().removeAllRanges();window.getSelection().addRange(r);
+    }
+  };
+})();
+</script>
